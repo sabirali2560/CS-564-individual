@@ -1,0 +1,97 @@
+<?xml version="1.0"?>
+<pset>
+
+    <!--
+        CS 564, Spring 2023
+        HOMEWORK 3 SUBMISSION TEMPLATE
+
+        Please copy and paste your SQL queries (and potentially Python and Latex code) 
+	into the appropriate spots below. 
+
+        When submitting SQL queries, please do not include the initial 
+        %sql or %%sql IPython commands. Just include the SQL code.
+
+        DO NOT DELETE THE <![CDATA[ ... ]]> LINES IN EACH <answer> TAG!
+        Doing so will break the autograder. To avoid accidentally breaking
+        something, please leave all existing comments in this template
+        intact in your submission.
+    -->
+
+    <student>
+        <name>
+            <!-- Insert your full name on the line below. -->
+            Ali Asgar Sabir
+        </name>
+        <studentid>
+            <!-- Insert your student ID number below. -->
+            9083767633
+        </studentid>
+    </student>
+
+
+    <!-- BEGIN PROBLEM 1 -->
+    <answer number="1a">
+        <!-- Paste your solution to problem 1, part (a) below this line. --><![CDATA[
+         Select distinct h1.provider from hospital h1, hospital h2 where h1.provider == h2.provider and (h1.hospital != h2.hospital or h1.address != h2.address or h1.city != h2.city or h1.state != h2.state or h1.zip != h2.zip or h1.county != h2.county or h1.phone_number != h2.phone_number or h1.hospital_type != h2.hospital_type or h1.hospital_owner != h2.hospital_owner or h1.emergency_service != h2.emergency_service or h1.condition != h2.condition or h1.measure_code != h2.measure_code)
+        ]]><!-- End problem 1, part (a). -->
+    </answer>
+    <answer number="1b">
+        <!-- Paste your solution to problem 1, part (b) below this line. --><![CDATA[
+        Select h1.zip from hospital h1, hospital h2 where h1.zip == h2.zip and (h1.city != h2.city or h1.state != h2.state)
+        ]]><!-- End problem 1, part (b). -->
+    </answer>
+    <!-- END PROBLEM 1 -->
+
+
+    <!-- BEGIN PROBLEM 2 -->
+    <answer number="2a">
+        <!-- Paste your solution to problem 2, part (a) below this line. --><![CDATA[
+        answer = True
+        explanation = "A,B is a superkey because its closure is {A,B,C,D,E,F} which are all the attributes in the relation S."   
+        ]]><!-- End problem 2, part (a). -->
+    </answer>
+    <answer number="2b">
+        <!-- Paste your solution to problem 2, part (b) below this line. --><![CDATA[
+        answer = False
+        explanation = "After considering every possible decomposition into these 3 relations(first decomposing S into 2 sub relations and then into 3) there is no possible way to arrive at these 3 sub relations such that the decomposition is lossless."
+        ]]><!-- End problem 2, part (b). -->
+    </answer>    
+    <answer number="2c">
+        <!-- Paste your solution to problem 2, part (c) below this line. --><![CDATA[
+        answer = False
+        explanantion = "F1 includes A->C, F2 includes D->C, F3 includes A->E and A->F. closure of (F1 U F2 U F3) != closure of F."
+        ]]><!-- End problem 2, part (c). -->
+    </answer>
+    <answer number="2d">
+        <!-- Paste your solution to problem 2, part (d) below this line. --><![CDATA[
+        answer = True
+        explanation = "From Transitivity, {A} -> {D} and {D} -> {F} implies that {A} -> {F} -- (i). Also given that {A} -> {E} -- (ii). Using reflexivity, we can say {A} -> {A,A} -- (iii). Using transitivity on (i), (ii) and (iii) we can say {A} -> {E,F}."
+        ]]><!-- End problem 2, part (d). -->
+    </answer>
+    <answer number="2e">
+        <!-- Paste your solution to problem 2, part (e) below this line. --><![CDATA[
+        answer = False
+        explanation = "S is not in BCNF since {D} -> {C} and {D} -> {F} but D is not a key."    
+        ]]><!-- End problem 2, part (e). -->
+    </answer>
+    <!-- END PROBLEM 2 -->
+
+    <!-- BEGIN PROBLEM 3 -->
+    <answer number="3a">
+        <!-- Paste your solution to problem 3, part (a) below this line. --><![CDATA[
+        $$ \pi_{Person.name}(\sigma_{affiliation="UW-Madison"}(Person) \bowtie Author \bowtie Article \bowtie \sigma_{year = "2021"} (Conference)) $$
+        ]]><!-- End problem 3, part (a). -->
+    </answer>
+    <answer number="3b">
+        <!-- Paste your solution to problem 3, part (b) below this line. --><![CDATA[
+        $$\pi_{name}((\sigma_{name != "John Doe"}(Person) \bowtie Author) \bowtie \pi_{artid}(\sigma_{name = "John Doe"}(Person) \bowtie Author))$$
+        ]]><!-- End problem 3, part (b). -->
+    </answer>
+    <answer number="3c">
+        <!-- Paste your solution to problem 3, part (c) below this line. --><![CDATA[
+        $$\gamma_{pid, COUNT(A.artid)} (\sigma_{C.name = "PODS"}(\rho(C, Conference)) \bowtie \rho(A, Article) \bowtie \rho(U, Author))$$
+        ]]><!-- End problem 3, part (c). -->
+    </answer>
+    <!-- END PROBLEM 3 -->
+
+</pset>
